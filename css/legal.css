@@ -1,0 +1,65 @@
+/* ============================================================
+   LEGAL PAGES — prose layout
+   ============================================================ */
+.legal-wrap {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: var(--sp-16);
+  padding-block: var(--sp-8) var(--sp-24);
+  align-items: flex-start;
+}
+@media (max-width: 860px) { .legal-wrap { grid-template-columns: 1fr; gap: var(--sp-8); } }
+
+.legal-toc {
+  position: sticky;
+  top: 96px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  font-size: var(--fs-small);
+}
+.legal-toc a { color: var(--ink-500); padding-block: var(--sp-1); }
+.legal-toc a:hover, .legal-toc a.active { color: var(--ink-900); font-weight: 600; }
+
+.legal-body { max-width: 72ch; }
+.legal-updated { font-family: var(--font-mono); font-size: var(--fs-micro); color: var(--ink-500); }
+.legal-body h2 {
+  font-size: 1.3rem;
+  margin-top: var(--sp-12);
+  padding-top: var(--sp-4);
+  scroll-margin-top: 96px;
+}
+.legal-body h2:first-of-type { margin-top: var(--sp-8); }
+.legal-body p { margin-top: var(--sp-4); color: var(--ink-700); }
+.legal-body ul { margin-top: var(--sp-4); display: flex; flex-direction: column; gap: var(--sp-2); }
+.legal-body li { color: var(--ink-700); padding-left: var(--sp-5); position: relative; }
+.legal-body li::before { content: "—"; position: absolute; left: 0; color: var(--ink-500); }
+.legal-body a { color: var(--pen-red); font-weight: 600; }
+
+/* ---- 404 ---- */
+.error-page {
+  min-height: 62vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-block: var(--sp-24);
+}
+.error-code {
+  font-family: var(--font-mono);
+  font-size: 5rem;
+  color: var(--ink-900);
+  line-height: 1;
+  position: relative;
+  display: inline-block;
+}
+.error-code .strike {
+  position: absolute; left: -6%; right: -6%; top: 46%;
+  height: 8px;
+  background: var(--pen-red);
+  transform: rotate(-4deg);
+  border-radius: 4px;
+}
+.error-page h1 { margin-top: var(--sp-6); font-size: var(--fs-display-md); }
+.error-page p { margin-top: var(--sp-4); color: var(--ink-500); max-width: 46ch; margin-inline: auto; }
+.error-actions { display: flex; gap: var(--sp-4); justify-content: center; margin-top: var(--sp-8); flex-wrap: wrap; }

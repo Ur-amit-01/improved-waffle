@@ -1,0 +1,31 @@
+/* ============================================================
+   SHOP — HERO
+   ============================================================ */
+.shop-hero {
+  padding-block: var(--sp-16) var(--sp-8);
+  border-bottom: 1px solid var(--line-100);
+}
+.shop-hero h1 {
+  font-size: var(--fs-display-lg);
+  margin-top: var(--sp-3);
+  max-width: 20ch;
+}
+.shop-hero p {
+  margin-top: var(--sp-4);
+  color: var(--ink-500);
+  font-size: var(--fs-body-lg);
+  max-width: 56ch;
+}
+
+/* ============================================================
+   BUNDLE STRIP
+   ============================================================ */
+.bundle-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-8);
+  flex-wrap: wrap;
+}
+.bundle-strip h2 { margin-top: var(--sp-3); max-width: 20ch; }
+.bundle-strip p { margin-top: var(--sp-3); color: var(--ink-500); max-width: 46ch; }

@@ -1,0 +1,89 @@
+/* ============================================================
+   INFO PAGES — About / Contact / FAQ
+   ============================================================ */
+.page-hero {
+  padding-block: var(--sp-16) var(--sp-8);
+  border-bottom: 1px solid var(--line-100);
+}
+.page-hero h1 { font-size: var(--fs-display-lg); margin-top: var(--sp-3); max-width: 22ch; }
+.page-hero p { margin-top: var(--sp-4); color: var(--ink-500); font-size: var(--fs-body-lg); max-width: 56ch; }
+
+/* ---- About ---- */
+.about-story { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-16); align-items: center; }
+@media (max-width: 860px) { .about-story { grid-template-columns: 1fr; gap: var(--sp-8); } }
+.about-story img { border-radius: var(--radius-lg); width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+.about-story h2 { font-size: var(--fs-display-md); }
+.about-story p { margin-top: var(--sp-4); color: var(--ink-500); }
+.about-story p + p { margin-top: var(--sp-3); }
+
+.stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-6); }
+@media (max-width: 700px) { .stat-row { grid-template-columns: 1fr 1fr; } }
+.stat-card { text-align: center; padding: var(--sp-6); background: var(--white); border: 1px solid var(--line-100); border-radius: var(--radius-md); }
+.stat-card strong { font-family: var(--font-mono); font-size: 1.8rem; color: var(--ink-900); display: block; }
+.stat-card span { font-size: var(--fs-small); color: var(--ink-500); }
+
+.values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-6); }
+@media (max-width: 780px) { .values-grid { grid-template-columns: 1fr; } }
+.value-card { padding: var(--sp-6); background: var(--white); border: 1px solid var(--line-100); border-radius: var(--radius-md); }
+.value-card h3 { font-size: 1.1rem; }
+.value-card p { margin-top: var(--sp-2); color: var(--ink-500); font-size: var(--fs-small); }
+
+/* ---- Contact ---- */
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-16); align-items: flex-start; }
+@media (max-width: 860px) { .contact-grid { grid-template-columns: 1fr; gap: var(--sp-10); } }
+.contact-channels { display: flex; flex-direction: column; gap: var(--sp-4); }
+.channel-card {
+  display: flex; gap: var(--sp-4); align-items: flex-start;
+  padding: var(--sp-5); background: var(--white); border: 1px solid var(--line-100); border-radius: var(--radius-md);
+}
+.channel-icon {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--mark-lime); color: var(--mark-lime-ink);
+  display: flex; align-items: center; justify-content: center; flex: none;
+}
+.channel-card h3 { font-size: 1rem; }
+.channel-card p { margin-top: var(--sp-1); color: var(--ink-500); font-size: var(--fs-small); }
+.channel-card a { color: var(--ink-900); font-weight: 600; font-size: var(--fs-small); }
+
+.contact-form { display: flex; flex-direction: column; gap: var(--sp-4); }
+.form-field { display: flex; flex-direction: column; gap: var(--sp-2); }
+.form-field label { font-size: var(--fs-small); font-weight: 600; color: var(--ink-900); }
+.form-field input, .form-field textarea, .form-field select {
+  font: inherit;
+  padding: 0.85rem 1rem;
+  border: 1.5px solid var(--line-100);
+  border-radius: var(--radius-sm);
+  background: var(--white);
+  color: var(--ink-900);
+  transition: border-color var(--dur-fast) ease-out;
+}
+.form-field input:focus, .form-field textarea:focus, .form-field select:focus {
+  border-color: var(--ink-900);
+  outline: none;
+}
+.form-field textarea { resize: vertical; min-height: 120px; }
+.form-error { font-size: var(--fs-micro); color: var(--pen-red); min-height: 1em; }
+.form-success {
+  display: none;
+  align-items: center; gap: var(--sp-3);
+  background: var(--mark-lime); color: var(--mark-lime-ink);
+  padding: var(--sp-4) var(--sp-5); border-radius: var(--radius-md);
+  font-size: var(--fs-small); font-weight: 600;
+}
+.form-success.visible { display: flex; }
+
+/* ---- FAQ page ---- */
+.faq-categories { display: flex; gap: var(--sp-3); flex-wrap: wrap; margin-bottom: var(--sp-10); }
+.faq-cat-btn {
+  padding: 0.6em 1.1em;
+  border-radius: 999px;
+  border: 1.5px solid var(--line-100);
+  background: var(--white);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--ink-700);
+  transition: background var(--dur-fast) ease-out, color var(--dur-fast) ease-out, border-color var(--dur-fast) ease-out;
+}
+.faq-cat-btn.active, .faq-cat-btn:hover { background: var(--ink-900); color: var(--paper-0); border-color: var(--ink-900); }
+.faq-group { margin-bottom: var(--sp-10); }
+.faq-group h2 { font-size: 1.3rem; margin-bottom: var(--sp-4); }

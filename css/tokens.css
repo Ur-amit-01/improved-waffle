@@ -1,0 +1,72 @@
+/* ============================================================
+   NEET NOTES STORE — DESIGN TOKENS
+   Concept: "The Marked Answer Sheet" — the visual language of
+   OMR sheets, red-pen corrections, and highlighter strokes,
+   built for a NEET aspirant who lives inside exam paper and
+   scorecards. Ink navy for authority, paper white for the page
+   itself, highlighter lime for "correct/selected", pen-red for
+   scores and urgency (savings, ratings, live badges).
+   ============================================================ */
+
+:root {
+  /* ---- Color: named + hex ---- */
+  --ink-900: #12203B;      /* primary ink navy — headings, nav */
+  --ink-700: #223258;      /* secondary ink — body on light */
+  --ink-500: #5B6785;      /* muted ink — captions, meta */
+  --paper-0: #FAF9F5;      /* page background, warm paper white */
+  --paper-1: #F1EEE5;      /* recessed panel / card well */
+  --line-100: #E4E0D3;     /* hairline rules on paper */
+  --mark-lime: #D7F24C;    /* highlighter accent — selection, focus */
+  --mark-lime-ink: #4C5A12;/* text sitting on lime for AA contrast */
+  --pen-red: #D34B2C;      /* red-pen accent — price, save badge, live */
+  --pen-red-dark: #B23B21;
+  --white: #FFFFFF;
+
+  /* ---- Type families ---- */
+  --font-display: "Fraunces", "Times New Roman", serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", "Courier New", monospace;
+
+  /* ---- Type scale (fluid) ---- */
+  --fs-display-xl: clamp(2.75rem, 4vw + 1.5rem, 5rem);
+  --fs-display-lg: clamp(2.1rem, 2.6vw + 1.2rem, 3.4rem);
+  --fs-display-md: clamp(1.6rem, 1.4vw + 1.1rem, 2.2rem);
+  --fs-body-lg: 1.15rem;
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+  --fs-micro: 0.75rem;
+
+  /* ---- Spacing scale ---- */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-6: 1.5rem;
+  --sp-8: 2rem;
+  --sp-12: 3rem;
+  --sp-16: 4rem;
+  --sp-24: 6rem;
+
+  /* ---- Layout ---- */
+  --container-max: 1240px;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --shadow-card: 0 1px 2px rgba(18,32,59,0.06), 0 12px 32px -16px rgba(18,32,59,0.18);
+  --shadow-lift: 0 24px 48px -20px rgba(18,32,59,0.28);
+
+  /* ---- Motion ---- */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 160ms;
+  --dur-med: 320ms;
+  --dur-slow: 640ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
