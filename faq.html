@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ — NEET Notes Store</title>
+<meta name="description" content="Answers about payments, delivery, content, and refunds for NEET Notes Store.">
+<link rel="canonical" href="https://neetnotesstore.com/faq.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="FAQ — NEET Notes Store">
+<meta property="og:description" content="Answers about payments, delivery, content, and refunds for NEET Notes Store.">
+<meta property="og:url" content="https://neetnotesstore.com/faq.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="FAQ — NEET Notes Store">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/info-pages.css">
+
+<script type="application/ld+json" id="faqSchema"></script>
+</head>
+<body data-page="faq">
+
+<div id="page-loader"><div class="loader-mark"><span class="dot"></span> Loading</div></div>
+<header id="site-header" class="site-header"></header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow reveal">Help Centre</span>
+      <h1 class="reveal">Everything before you hit Buy Now.</h1>
+      <p class="reveal">Payments, delivery, content, and refunds — the questions that come up most.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="faq-categories reveal" id="faqCats"></div>
+      <div id="faqGroups"></div>
+    </div>
+  </section>
+
+  <section class="section cta-band">
+    <div class="container cta-inner reveal">
+      <h2>Still stuck?</h2>
+      <p>Send us a message and we'll reply within 24 hours.</p>
+      <a href="contact.html" class="btn btn-mark btn-lg">Contact us</a>
+    </div>
+  </section>
+</main>
+
+<footer id="site-footer" class="site-footer"></footer>
+<button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+
+<script src="js/products.js"></script>
+<script src="js/components.js"></script>
+<script src="js/main.js"></script>
+<script>
+  renderHeader("faq");
+  renderFooter();
+
+  const FAQ_DATA = {
+    "Payment": [
+      ["What payment methods are accepted?", "All major UPI apps, credit/debit cards, and net banking, processed securely via Razorpay."],
+      ["Is my payment information safe?", "Yes — payments are handled entirely by Razorpay. We never see or store your card or UPI details."],
+      ["Will I get a payment receipt?", "Yes, Razorpay emails a receipt automatically after every successful payment."]
+    ],
+    "Delivery": [
+      ["How fast do I receive the notes?", "Instantly — your download link appears right after payment, usually within 60 seconds."],
+      ["Do I need to create an account?", "No. There are no accounts, logins, or carts — just payment and download."],
+      ["What if I don't receive my download link?", "Email support@neetnotesstore.com with your payment reference and we'll resend it within 24 hours."]
+    ],
+    "Content": [
+      ["What format are the notes in?", "A single downloadable PDF per subject, formatted for both print and on-screen annotation."],
+      ["Are the notes updated for the latest NEET pattern?", "Yes, content is reviewed each admission cycle against the current NEET syllabus and pattern."],
+      ["Can I print the notes?", "Yes, every PDF is print-ready."]
+    ],
+    "Refunds": [
+      ["Can I get a refund after downloading?", "Because notes are delivered instantly as digital files, refunds aren't available once a download link has been issued. See our Refund Policy for full details."],
+      ["What if the file is corrupted or won't open?", "That's on us to fix — email support and we'll send a working copy immediately, no refund needed."]
+    ]
+  };
+
+  const catsEl = document.getElementById("faqCats");
+  const groupsEl = document.getElementById("faqGroups");
+  const categories = Object.keys(FAQ_DATA);
+
+  function renderGroups(filter) {
+    const cats = filter === "All" ? categories : [filter];
+    groupsEl.innerHTML = cats.map(cat => `
+      <div class="faq-group">
+        <h2>${cat}</h2>
+        <div class="faq-list">
+          ${FAQ_DATA[cat].map(([q, a]) => `
+            <details class="faq-item"><summary>${q}</summary><p>${a}</p></details>
+          `).join("")}
+        </div>
+      </div>
+    `).join("");
+  }
+
+  catsEl.innerHTML = ["All", ...categories].map(c =>
+    `<button class="faq-cat-btn${c === "All" ? " active" : ""}" data-cat="${c}">${c}</button>`
+  ).join("");
+
+  catsEl.addEventListener("click", (e) => {
+    const btn = e.target.closest(".faq-cat-btn");
+    if (!btn) return;
+    catsEl.querySelectorAll(".faq-cat-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    renderGroups(btn.dataset.cat);
+  });
+
+  renderGroups("All");
+
+  // FAQPage structured data
+  const allFaqs = Object.values(FAQ_DATA).flat();
+  document.getElementById("faqSchema").textContent = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": allFaqs.map(([q, a]) => ({
+      "@type": "Question",
+      "name": q,
+      "acceptedAnswer": { "@type": "Answer", "text": a }
+    }))
+  });
+</script>
+</body>
+</html>

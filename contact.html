@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us — NEET Notes Store</title>
+<meta name="description" content="Get in touch with NEET Notes Store for order help, content questions, or feedback.">
+<link rel="canonical" href="https://neetnotesstore.com/contact.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Contact Us — NEET Notes Store">
+<meta property="og:description" content="Get in touch with NEET Notes Store for order help, content questions, or feedback.">
+<meta property="og:url" content="https://neetnotesstore.com/contact.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Contact Us — NEET Notes Store">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/info-pages.css">
+</head>
+<body data-page="contact">
+
+<div id="page-loader"><div class="loader-mark"><span class="dot"></span> Loading</div></div>
+<header id="site-header" class="site-header"></header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow reveal">Get In Touch</span>
+      <h1 class="reveal">Questions before or after buying?</h1>
+      <p class="reveal">Order issues, content questions, or just feedback on a chapter — this goes straight to the team, not a ticket queue.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container contact-grid">
+      <div class="contact-channels reveal">
+        <div class="channel-card">
+          <div class="channel-icon">✉️</div>
+          <div>
+            <h3>Email</h3>
+            <p>For order or download issues, include the email used at checkout.</p>
+            <a href="mailto:support@neetnotesstore.com">support@neetnotesstore.com</a>
+          </div>
+        </div>
+        <div class="channel-card">
+          <div class="channel-icon">💬</div>
+          <div>
+            <h3>WhatsApp</h3>
+            <p>Fastest for quick questions before you buy.</p>
+            <a href="https://wa.me/910000000000" target="_blank" rel="noopener">+91 00000 00000</a>
+          </div>
+        </div>
+        <div class="channel-card">
+          <div class="channel-icon">🕐</div>
+          <div>
+            <h3>Response time</h3>
+            <p>Within 24 hours, every day of the week — including exam season.</p>
+          </div>
+        </div>
+      </div>
+
+      <form class="contact-form reveal" id="contactForm" novalidate>
+        <div class="form-success" id="formSuccess">✓ Message sent — we'll reply within 24 hours.</div>
+
+        <div class="form-field">
+          <label for="cfName">Name</label>
+          <input type="text" id="cfName" name="name" autocomplete="name" required>
+          <span class="form-error" id="errName"></span>
+        </div>
+
+        <div class="form-field">
+          <label for="cfEmail">Email</label>
+          <input type="email" id="cfEmail" name="email" autocomplete="email" required>
+          <span class="form-error" id="errEmail"></span>
+        </div>
+
+        <div class="form-field">
+          <label for="cfTopic">Topic</label>
+          <select id="cfTopic" name="topic">
+            <option value="order">Order / download issue</option>
+            <option value="content">Question about content</option>
+            <option value="feedback">Feedback</option>
+            <option value="other">Something else</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label for="cfMessage">Message</label>
+          <textarea id="cfMessage" name="message" required></textarea>
+          <span class="form-error" id="errMessage"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg">Send message</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer id="site-footer" class="site-footer"></footer>
+<button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+
+<script src="js/products.js"></script>
+<script src="js/components.js"></script>
+<script src="js/main.js"></script>
+<script>
+  renderHeader("contact");
+  renderFooter();
+
+  const form = document.getElementById("contactForm");
+  const success = document.getElementById("formSuccess");
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    let valid = true;
+
+    const name = document.getElementById("cfName");
+    const email = document.getElementById("cfEmail");
+    const message = document.getElementById("cfMessage");
+
+    document.getElementById("errName").textContent = "";
+    document.getElementById("errEmail").textContent = "";
+    document.getElementById("errMessage").textContent = "";
+
+    if (!name.value.trim()) {
+      document.getElementById("errName").textContent = "Enter your name.";
+      valid = false;
+    }
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email.value.trim())) {
+      document.getElementById("errEmail").textContent = "Enter a valid email.";
+      valid = false;
+    }
+    if (!message.value.trim()) {
+      document.getElementById("errMessage").textContent = "Write a short message.";
+      valid = false;
+    }
+
+    if (!valid) return;
+
+    success.classList.add("visible");
+    form.reset();
+    success.scrollIntoView({ behavior: "smooth", block: "center" });
+  });
+</script>
+</body>
+</html>
